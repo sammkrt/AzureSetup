@@ -44,4 +44,63 @@ az webapp deployment user set --user-name <username> --password <password>
 az appservice list-locations
   --sku FREE
   ```
-  
+
+<h4> Create resource here in Western Europe</h4>
+
+```
+az group create
+  --name firstAppResourceGroup
+  --location "West Europe"
+  ```
+
+<h4> Create an AppService plan</h4>
+
+```
+az appservice plan create
+  --name firstAppServicePlan
+  --resource-group firstAppResourceGroup
+  --sku FREE
+  ```
+
+## CREATE THE WEB APP
+
+```
+az webapp create
+  --resource-group firstAppResourceGroup
+  --plan firstAppServicePlan
+  --name firstAppCli
+  --deployment-local-git
+  ```
+
+## NOW WE PUSH OUR APP
+
+
+```
+az webapp config appsettings set
+  --name firstAppCli
+  --resource-group firstAppResourceGroup
+  --settings DEPLOYMENT_BRANCH='main'
+  ```
+
+<h4> Add Azure remote</h4>
+
+```
+git remote add azure
+   <deploymentLocalGitUrl-from-create-ste
+   ```
+
+<h4> Push, using the deployment user</h4>
+
+```
+git push azure main
+```
+
+## REMOVE THE APP
+
+```
+az group delete
+  --name firstAppResourceGroup
+  ```
+
+
+
