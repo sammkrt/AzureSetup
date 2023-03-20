@@ -65,11 +65,7 @@ az appservice plan create
 ## CREATE THE WEB APP
 
 ```
-az webapp create
-  --resource-group firstAppResourceGroup
-  --plan firstAppServicePlan
-  --name firstAppCli
-  --deployment-local-git
+az webapp create --resource-group firstAppResourceGroup --plan firstAppServicePlan --name firstAppCli --deployment-local-git
   ```
 
 ## NOW WE PUSH OUR APP
