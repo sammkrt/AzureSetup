@@ -88,4 +88,4 @@ az group delete --name firstAppResourceGroup
   ```
 
 
-
+https://websitebeaver.com/deploy-create-react-app-to-azure-app-services#deploy-to-app-service
